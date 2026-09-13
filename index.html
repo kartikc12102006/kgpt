@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>My Study Bot V1</title>
+
+    <!-- PDF.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs"
+            type="module"></script>
+
+    <!-- Tesseract.js -->
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <header>
+
+        <div class="logo">
+            📚
+        </div>
+
+        <div>
+            <h1>My Study Bot</h1>
+            <p>V1 • Your Personal Study Assistant</p>
+        </div>
+
+    </header>
+
+
+    <!-- STATUS -->
+    <div id="statusBox" class="status">
+        🟢 Ready
+    </div>
+
+
+    <!-- TEXTBOOK SECTION -->
+    <section class="card">
+
+        <h2>📚 1. Upload Textbook</h2>
+
+        <p class="description">
+            Upload your textbook, notes or PYQ PDF.
+        </p>
+
+        <input
+            type="file"
+            id="pdfInput"
+            accept=".pdf"
+        >
+
+        <button id="loadPdfBtn">
+            📖 Load PDF
+        </button>
+
+        <div id="pdfInfo" class="info">
+            No textbook loaded.
+        </div>
+
+    </section>
+
+
+    <!-- QUESTION IMAGE -->
+    <section class="card">
+
+        <h2>📷 2. Upload Question</h2>
+
+        <p class="description">
+            Take a photo or upload an image of your question.
+        </p>
+
+        <input
+            type="file"
+            id="imageInput"
+            accept="image/*"
+            capture="environment"
+        >
+
+        <button id="ocrBtn">
+            📝 Read Question
+        </button>
+
+        <div class="progress-container">
+            <div id="ocrProgress"></div>
+        </div>
+
+    </section>
+
+
+    <!-- QUESTION TEXT -->
+    <section class="card">
+
+        <h2>❓ 3. Your Question</h2>
+
+        <textarea
+            id="questionInput"
+            placeholder="Your question will appear here..."
+        ></textarea>
+
+        <button id="searchBtn">
+            🔎 Search Textbook
+        </button>
+
+        <button id="simplifyBtn" class="secondary">
+            ✨ Simplify
+        </button>
+
+    </section>
+
+
+    <!-- RESULTS -->
+    <section class="card">
+
+        <h2>📖 4. Result</h2>
+
+        <div id="result">
+            <p class="empty">
+                Upload a textbook and search for a question.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- GOOGLE -->
+    <section class="card">
+
+        <h2>🌐 5. Web Search</h2>
+
+        <p class="description">
+            If your textbook does not contain the answer,
+            search the question on Google.
+        </p>
+
+        <button id="googleBtn">
+            🌐 Search Google
+        </button>
+
+    </section>
+
+
+    <!-- NUMERICAL -->
+    <section class="card">
+
+        <h2>🧮 6. Basic Calculation</h2>
+
+        <p class="description">
+            Try simple expressions such as:
+            <br>
+            <b>50/10</b>,
+            <b>10*9.81</b>,
+            <b>1000/0.5</b>
+        </p>
+
+        <input
+            type="text"
+            id="calculationInput"
+            placeholder="Example: 50/10"
+        >
+
+        <button id="calculateBtn">
+            🧮 Calculate
+        </button>
+
+        <div id="calculationResult" class="calculation-result">
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            My Study Bot V1
+        </p>
+
+        <p>
+            PDF Search • OCR • Google Search
+        </p>
+
+        <p>
+            No paid AI API
+        </p>
+
+    </footer>
+
+</div>
+
+
+<script type="module" src="app.js"></script>
+
+</body>
+</html>
